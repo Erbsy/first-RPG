@@ -57,12 +57,20 @@ namespace Noob_RPG
                
             LblAnzeigeHPGegner.Text = EnemyHP + "/" +  EnemeyMaxHP;
 
-
             //close PictureBox1 if EnemyHP = 0
 
 
+            if (EnemyHP <= 0)
+            {
+                pictureBox1.Visible = false;
+                LblAnzeigeHPGegner.Visible = false;
+                CmdAngriff.Enabled = false;
 
-           
+            }
+
+
+
+
 
         }
     }
