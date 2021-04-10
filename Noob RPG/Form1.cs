@@ -19,13 +19,10 @@ namespace Noob_RPG
 
         int PlayerHP = 100;
         int PlayerAttack = 10;
+        int PlayerMaxHP = 100;
 
-        int EnemeyMaxHP = 100;
+        int EnemyMaxHP = 100;
         int EnemyHP = 100;
-
-        
-
-
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -40,7 +37,8 @@ namespace Noob_RPG
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            ShowEnemyHP(EnemyHP, EnemyMaxHP);
+            LblAnzeigeHPSpieler.Text = PlayerHP + "/" + PlayerMaxHP;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -50,15 +48,12 @@ namespace Noob_RPG
 
         private void CmdAngriff_Click(object sender, EventArgs e)
         {
-            //  , Gegner tut nichts
+            //  , Gegner tut nichtss
             // Gegener greift danach an, Schaden senkt Spieler Hp um: , Spieler tut nichts
             // LblAnzeige beider sinkt und wird direkt angezeigt 95/100
             EnemyHP = EnemyHP - PlayerAttack;
-               
-            LblAnzeigeHPGegner.Text = EnemyHP + "/" +  EnemeyMaxHP;
 
-            //close PictureBox1 if EnemyHP = 0
-
+            ShowEnemyHP(EnemyHP, EnemyMaxHP);
 
             if (EnemyHP <= 0)
             {
@@ -67,11 +62,13 @@ namespace Noob_RPG
                 CmdAngriff.Enabled = false;
 
             }
-
-
-
-
-
         }
+
+        private void ShowEnemyHP(int enemyHP, int enemyMaxHP)
+        {
+            LblAnzeigeHPGegner.Text = enemyHP + "/" + enemyMaxHP;
+        }
+
+
     }
 }
