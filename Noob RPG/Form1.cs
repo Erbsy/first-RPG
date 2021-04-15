@@ -24,6 +24,21 @@ namespace Noob_RPG
         int EnemyMaxHP = 100;
         int EnemyHP = 100;
 
+        //private int _enemyHp;
+        //public int EnemyHp
+        //{
+        //    get
+        //    {
+        //        return _enemyHp;
+        //    }
+        //    set
+        //    {
+        //        _enemyHp = value;
+        //        ShowEnemyHP();
+        //    }
+
+        //}
+
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -37,7 +52,7 @@ namespace Noob_RPG
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ShowEnemyHP(EnemyHP, EnemyMaxHP);
+            ShowEnemyHP();
             LblAnzeigeHPSpieler.Text = PlayerHP + "/" + PlayerMaxHP;
         }
 
@@ -53,7 +68,7 @@ namespace Noob_RPG
             // LblAnzeige beider sinkt und wird direkt angezeigt 95/100
             EnemyHP = EnemyHP - PlayerAttack;
 
-            ShowEnemyHP(EnemyHP, EnemyMaxHP);
+            ShowEnemyHP();
 
             if (EnemyHP <= 0)
             {
@@ -61,12 +76,26 @@ namespace Noob_RPG
                 LblAnzeigeHPGegner.Visible = false;
                 CmdAngriff.Enabled = false;
 
+                MessageBox.Show("Gewonnen !", "Gegner Besiegt");
+
+                NewEnemy();
             }
         }
 
-        private void ShowEnemyHP(int enemyHP, int enemyMaxHP)
+        private void NewEnemy()
         {
-            LblAnzeigeHPGegner.Text = enemyHP + "/" + enemyMaxHP;
+            EnemyHP = EnemyMaxHP;
+            pictureBox1.Visible = true;
+            LblAnzeigeHPGegner.Visible = true;
+            CmdAngriff.Enabled = true;
+
+            ShowEnemyHP ();
+
+        }
+
+        private void ShowEnemyHP()
+        {
+            LblAnzeigeHPGegner.Text = EnemyHP + "/" + EnemyMaxHP;
         }
 
 
