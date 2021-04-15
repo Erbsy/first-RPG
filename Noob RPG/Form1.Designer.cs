@@ -34,6 +34,7 @@
             this.LblAnzeigeHPGegner = new System.Windows.Forms.Label();
             this.LblAnzeigeHPSpieler = new System.Windows.Forms.Label();
             this.CmdAngriff = new System.Windows.Forms.Button();
+            this.LblAnzeigeGold = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -86,11 +87,20 @@
             this.CmdAngriff.UseVisualStyleBackColor = true;
             this.CmdAngriff.Click += new System.EventHandler(this.CmdAngriff_Click);
             // 
+            // LblAnzeigeGold
+            // 
+            this.LblAnzeigeGold.AutoSize = true;
+            this.LblAnzeigeGold.Location = new System.Drawing.Point(93, 372);
+            this.LblAnzeigeGold.Name = "LblAnzeigeGold";
+            this.LblAnzeigeGold.Size = new System.Drawing.Size(0, 17);
+            this.LblAnzeigeGold.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.LblAnzeigeGold);
             this.Controls.Add(this.CmdAngriff);
             this.Controls.Add(this.LblAnzeigeHPSpieler);
             this.Controls.Add(this.LblAnzeigeHPGegner);
@@ -113,6 +123,7 @@
         private System.Windows.Forms.Label LblAnzeigeHPGegner;
         private System.Windows.Forms.Label LblAnzeigeHPSpieler;
         private System.Windows.Forms.Button CmdAngriff;
+        private System.Windows.Forms.Label LblAnzeigeGold;
     }
 }
 

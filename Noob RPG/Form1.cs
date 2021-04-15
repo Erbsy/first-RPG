@@ -20,9 +20,11 @@ namespace Noob_RPG
         int PlayerHP = 100;
         int PlayerAttack = 10;
         int PlayerMaxHP = 100;
+        int PlayerGold;
 
         int EnemyMaxHP = 100;
         int EnemyHP = 100;
+
 
         //private int _enemyHp;
         //public int EnemyHp
@@ -54,6 +56,12 @@ namespace Noob_RPG
         {
             ShowEnemyHP();
             LblAnzeigeHPSpieler.Text = PlayerHP + "/" + PlayerMaxHP;
+            ShowPlayerGold();
+        }
+
+        private void ShowPlayerGold()
+        {
+            LblAnzeigeGold.Text = "Gold " + PlayerGold.ToString();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -77,6 +85,9 @@ namespace Noob_RPG
                 CmdAngriff.Enabled = false;
 
                 MessageBox.Show("Gewonnen !", "Gegner Besiegt");
+
+                PlayerGold += 10;
+                ShowPlayerGold();
 
                 NewEnemy();
             }
