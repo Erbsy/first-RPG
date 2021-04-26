@@ -35,6 +35,9 @@
             this.LblAnzeigeHPSpieler = new System.Windows.Forms.Label();
             this.CmdAngriff = new System.Windows.Forms.Button();
             this.LblAnzeigeGold = new System.Windows.Forms.Label();
+            this.CmdLvlUp = new System.Windows.Forms.Button();
+            this.LblLevelAnzeige = new System.Windows.Forms.Label();
+            this.TBLog = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -72,10 +75,11 @@
             // LblAnzeigeHPSpieler
             // 
             this.LblAnzeigeHPSpieler.AutoSize = true;
-            this.LblAnzeigeHPSpieler.Location = new System.Drawing.Point(156, 35);
+            this.LblAnzeigeHPSpieler.Location = new System.Drawing.Point(133, 9);
             this.LblAnzeigeHPSpieler.Name = "LblAnzeigeHPSpieler";
-            this.LblAnzeigeHPSpieler.Size = new System.Drawing.Size(0, 17);
+            this.LblAnzeigeHPSpieler.Size = new System.Drawing.Size(82, 17);
             this.LblAnzeigeHPSpieler.TabIndex = 3;
+            this.LblAnzeigeHPSpieler.Text = "HP Anzeige";
             // 
             // CmdAngriff
             // 
@@ -95,11 +99,45 @@
             this.LblAnzeigeGold.Size = new System.Drawing.Size(0, 17);
             this.LblAnzeigeGold.TabIndex = 5;
             // 
+            // CmdLvlUp
+            // 
+            this.CmdLvlUp.Location = new System.Drawing.Point(96, 391);
+            this.CmdLvlUp.Name = "CmdLvlUp";
+            this.CmdLvlUp.Size = new System.Drawing.Size(75, 23);
+            this.CmdLvlUp.TabIndex = 6;
+            this.CmdLvlUp.Text = "Level Up";
+            this.CmdLvlUp.UseVisualStyleBackColor = true;
+            this.CmdLvlUp.Click += new System.EventHandler(this.CmdLvlUp_Click);
+            // 
+            // LblLevelAnzeige
+            // 
+            this.LblLevelAnzeige.AutoSize = true;
+            this.LblLevelAnzeige.Location = new System.Drawing.Point(133, 43);
+            this.LblLevelAnzeige.Name = "LblLevelAnzeige";
+            this.LblLevelAnzeige.Size = new System.Drawing.Size(81, 17);
+            this.LblLevelAnzeige.TabIndex = 7;
+            this.LblLevelAnzeige.Text = "Lvl Anzeige";
+            this.LblLevelAnzeige.Click += new System.EventHandler(this.label1_Click_1);
+            // 
+            // TBLog
+            // 
+            this.TBLog.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.TBLog.Location = new System.Drawing.Point(595, 238);
+            this.TBLog.Name = "TBLog";
+            this.TBLog.ReadOnly = true;
+            this.TBLog.Size = new System.Drawing.Size(179, 176);
+            this.TBLog.TabIndex = 8;
+            this.TBLog.Text = "";
+            this.TBLog.TextChanged += new System.EventHandler(this.TBLog_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.TBLog);
+            this.Controls.Add(this.LblLevelAnzeige);
+            this.Controls.Add(this.CmdLvlUp);
             this.Controls.Add(this.LblAnzeigeGold);
             this.Controls.Add(this.CmdAngriff);
             this.Controls.Add(this.LblAnzeigeHPSpieler);
@@ -124,6 +162,9 @@
         private System.Windows.Forms.Label LblAnzeigeHPSpieler;
         private System.Windows.Forms.Button CmdAngriff;
         private System.Windows.Forms.Label LblAnzeigeGold;
+        private System.Windows.Forms.Button CmdLvlUp;
+        private System.Windows.Forms.Label LblLevelAnzeige;
+        private System.Windows.Forms.RichTextBox TBLog;
     }
 }
 

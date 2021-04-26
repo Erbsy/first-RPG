@@ -21,6 +21,7 @@ namespace Noob_RPG
         int PlayerAttack = 10;
         int PlayerMaxHP = 100;
         int PlayerGold;
+        int PlayerLvl = 1;
 
         int EnemyMaxHP = 100;
         int EnemyHP = 100;
@@ -57,6 +58,7 @@ namespace Noob_RPG
             ShowEnemyHP();
             LblAnzeigeHPSpieler.Text = PlayerHP + "/" + PlayerMaxHP;
             ShowPlayerGold();
+            ShowLvl();
         }
 
         private void ShowPlayerGold()
@@ -76,6 +78,8 @@ namespace Noob_RPG
             // LblAnzeige beider sinkt und wird direkt angezeigt 95/100
             EnemyHP = EnemyHP - PlayerAttack;
 
+            NewLineInLog("Schaden " + PlayerAttack);
+
             ShowEnemyHP();
 
             if (EnemyHP <= 0)
@@ -84,10 +88,12 @@ namespace Noob_RPG
                 LblAnzeigeHPGegner.Visible = false;
                 CmdAngriff.Enabled = false;
 
-                MessageBox.Show("Gewonnen !", "Gegner Besiegt");
-
+                NewLineInLog("Gegner besiegt " + "\n" + "Gewonnen");
+           
                 PlayerGold += 10;
                 ShowPlayerGold();
+
+                NewLineInLog("Spieler Gold: " + PlayerGold);
 
                 NewEnemy();
             }
@@ -101,7 +107,7 @@ namespace Noob_RPG
             CmdAngriff.Enabled = true;
 
             ShowEnemyHP ();
-
+            NewLineInLog("Ein wilder Stein erscheint. ");
         }
 
         private void ShowEnemyHP()
@@ -109,6 +115,43 @@ namespace Noob_RPG
             LblAnzeigeHPGegner.Text = EnemyHP + "/" + EnemyMaxHP;
         }
 
+        private void CmdLvlUp_Click(object sender, EventArgs e)
+        {
+
+
+            if (PlayerGold >= 10)
+            {
+                PlayerAttack += 5;
+                PlayerGold -= 10;
+                ShowPlayerGold();
+                PlayerLvl += 1;
+                ShowLvl();
+            }
+
+            NewLineInLog("Spieler Lvl " + PlayerLvl);
+            NewLineInLog("Spieler Schaden " + PlayerAttack);
+        }
+        private void ShowLvl()
+        {
+
+            LblLevelAnzeige.Text = "Level" + PlayerLvl.ToString();
+
+        }
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TBLog_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NewLineInLog(string newLine)
+        {
+            TBLog.AppendText(newLine + "\n");
+            TBLog.ScrollToCaret();
+        }
 
     }
 }
