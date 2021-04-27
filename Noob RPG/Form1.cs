@@ -25,6 +25,11 @@ namespace Noob_RPG
 
         int EnemyMaxHP = 100;
         int EnemyHP = 100;
+        int EnemyAttack = 5;
+
+        int EnemyAttackTimer = 3;
+
+
 
 
         //private int _enemyHp;
@@ -76,6 +81,9 @@ namespace Noob_RPG
             //  , Gegner tut nichtss
             // Gegener greift danach an, Schaden senkt Spieler Hp um: , Spieler tut nichts
             // LblAnzeige beider sinkt und wird direkt angezeigt 95/100
+
+            EnemyAttackTimer = EnemyAttackTimer - 1;
+
             EnemyHP = EnemyHP - PlayerAttack;
 
             NewLineInLog("Schaden " + PlayerAttack);
@@ -89,24 +97,46 @@ namespace Noob_RPG
                 CmdAngriff.Enabled = false;
 
                 NewLineInLog("Gegner besiegt " + "\n" + "Gewonnen");
-           
+
                 PlayerGold += 10;
                 ShowPlayerGold();
 
                 NewLineInLog("Spieler Gold: " + PlayerGold);
 
                 NewEnemy();
+                PlayerHP = PlayerMaxHP;
+                ShowPlayerHP();
             }
+            else
+            {
+                 if (EnemyAttackTimer == 0)
+                {
+                    PlayerHP = PlayerHP - EnemyAttack;
+                    ShowPlayerHP();
+                    NewLineInLog("Erlittener Schaden: " + EnemyAttack);
+
+                    EnemyAttackTimer = 3;
+                }
+
+            }
+
+
+        }
+
+        private void ShowPlayerHP()
+        {
+            LblAnzeigeHPSpieler.Text = PlayerHP + "/" + PlayerMaxHP;
         }
 
         private void NewEnemy()
         {
+            EnemyAttackTimer = 3;
             EnemyHP = EnemyMaxHP;
             pictureBox1.Visible = true;
             LblAnzeigeHPGegner.Visible = true;
             CmdAngriff.Enabled = true;
 
-            ShowEnemyHP ();
+            ShowEnemyHP();
             NewLineInLog("Ein wilder Stein erscheint. ");
         }
 
